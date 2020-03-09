@@ -33,7 +33,7 @@ Once you have it working in the console, write an event listener that will use t
 
 Our app already has a few players in it (check out the starter code in `index.js` to see how the initial render is set up), but we want our users to have the ability to add additional players by entering the player's details in the `form#new-player-form`.
 
-**When a user submits the form**, the new player should be displayed on the bottom of the page (you can use the `renderPlayer` helper function from the starter code if you like). The data won't persist (when you refresh the page, the new player won't show up) - we'll see how to fix this later in the mod.
+**When a user submits the form**, the new player should be displayed on the bottom of the page (you can use the `renderPlayer` helper function from the starter code if you like). The data won't persist (when you refresh the page, the new player won't show up) - we'll see how to fix this later in the mod. For now, focus on getting the player on the page when the form is submitted!
 
 Some things to keep in mind:
 - If you see the page refresh, consider adding some code to *prevent* the *default* behavior of a form submitting.
