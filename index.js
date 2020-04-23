@@ -29,8 +29,6 @@ PLAYERS.forEach(renderPlayer)
 /***** End of Starter Code ****/
 
 
-
-
 /***** Deliverable 1 *****/
 function toggleColor(element) {
   if (element.style.color === "red") {
@@ -39,8 +37,47 @@ function toggleColor(element) {
     element.style.color = "red"
   }
 }
-
+const header = document.querySelector("h1#header");
+header.addEventListener('click', function(event) {
+  toggleColor(event.target);
+})
 
 /***** Deliverable 2 *****/
+//create vairable that has all inputs:
+const allInputs = document.querySelectorAll('input');
+
+//create an event listener on form, with event 'submit'
+const createNewPlayer = document.getElementById("new-player-form");
+createNewPlayer.addEventListener('submit', function(event) {
+  event.preventDefault();
+  let playerHash = {};
+  playerHash['number'] = parseInt(allInputs[0].value);
+  playerHash['name'] = allInputs[1].value; 
+  playerHash['nickname'] = allInputs[2].value;
+  playerHash['photo'] = allInputs[3].value;
+  playerHash['likes'] = 1000;
+  renderPlayer(playerHash);
+  
+  //add event listener to the button
+  const buttons = document.querySelectorAll('button');
+  const thisButton = buttons[buttons.length - 1];
+  thisButton.addEventListener('click', function(event){
+    const parentNode = event.target.parentElement;
+    const likeTag = parentNode.querySelector('p');
+    const likeNumber = parseInt(likeTag.textContent);
+    likeTag.textContent = `${likeNumber + 1} likes`;
+  })
+  
+  event.target.reset();
+})
 
 /***** Deliverable 3 *****/
+const allButtons = document.querySelectorAll('button');
+allButtons.forEach(function(button){
+  button.addEventListener('click', function(event){
+    const parentNode = event.target.parentElement;
+    const likeTag = parentNode.querySelector('p');
+    const likeNumber = parseInt(likeTag.textContent);
+    likeTag.textContent = `${likeNumber + 1} likes`;
+  })
+})
